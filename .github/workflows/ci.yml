@@ -10,20 +10,20 @@ jobs:
     env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         DEBUG: ${{ secrets.DEBUG }}
-        ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }
-        DB_NAME: ${{ secrets.DB_NAME }
-        DB_USER: ${{ secrets.DB_USER }
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }
-        DB_HOST: ${{ secrets.DB_HOST }
-        DB_PORT: ${{ secrets.DB_PORT }
+        ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+        DB_NAME: ${{ secrets.DB_NAME }}
+        DB_USER: ${{ secrets.DB_USER }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_PORT: ${{ secrets.DB_PORT }}
 
     services:
       postgresql_main:
         image: postgres:12
         env:
-           POSTGRES_DB: ${{ env.DB_NAME }
-           POSTGRES_USER: ${{ env.DB_USER }
-           POSTGRES_PASSWORD: ${{ env.DB_PASSWORD }
+           POSTGRES_DB: ${{ env.DB_NAME }}
+           POSTGRES_USER: ${{ env.DB_USER }}
+           POSTGRES_PASSWORD: ${{ env.DB_PASSWORD }}
         ports:
             - 5432:5432
         options:
@@ -62,6 +62,6 @@ jobs:
           with:
             host: $ {{ secrets.SSH_HOST }}
             username: $ {{ secrets.SSH_USER }}
-            password: $ {{ secrets.SSH_PASSWORD }
+            password: $ {{ secrets.SSH_PASSWORD }}
             script: expect /home/user/drf-smart-home-hw/deploy.exp
 
